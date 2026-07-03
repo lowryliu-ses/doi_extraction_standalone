@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doi-extraction-standalone"
+version = "0.1.0"
+description = "Self-contained PDF DOI candidate extraction and metadata validation pipeline"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+pdf = ["pypdf>=4"]
+ocr = ["pymupdf>=1.24", "pytesseract>=0.3", "Pillow>=10"]
+
+[project.scripts]
+doi-pipeline = "doi_pipeline.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["doi_pipeline*"]
